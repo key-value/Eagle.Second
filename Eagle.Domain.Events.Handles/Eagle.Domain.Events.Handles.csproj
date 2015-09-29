@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CADCD90F-9ADF-4E2A-9186-BC508A828F27}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eagle.Domain.Events.Handles</RootNamespace>
+    <AssemblyName>Eagle.Domain.Events.Handles</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Eagle.Zero.Domain.Events">
+      <HintPath>..\..\Eagle.Zero\Zero.Packages\Eagle.Zero.Domain.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="Eagle.Zero.Infrastructrue">
+      <HintPath>..\..\Eagle.Zero\Zero.Packages\Eagle.Zero.Infrastructrue.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MsmqEventHandle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="传输数据\PostHttpEventHandle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eagle.Domain.Events\Eagle.Domain.Events.csproj">
+      <Project>{2C39770C-9DB9-49B2-A858-86D4CA5C4E20}</Project>
+      <Name>Eagle.Domain.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Infrastructrue\Eagle.Infrastructrue.csproj">
+      <Project>{950360C3-F1B7-408A-8C31-8E0687189115}</Project>
+      <Name>Eagle.Infrastructrue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Server.Interface\Eagle.Server.Interface.csproj">
+      <Project>{70D04AC9-7DDF-4AC8-B5C0-4A38EA375B9B}</Project>
+      <Name>Eagle.Server.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="服务器管理\" />
+    <Folder Include="餐厅\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

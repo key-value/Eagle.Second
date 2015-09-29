@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5EB1B509-74FC-4122-8A69-048B90FB0F41}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eagle.Server</RootNamespace>
+    <AssemblyName>Eagle.Server</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Client">
+      <HintPath>..\packages\jiliSock\Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Eagle.Zero.Domain.Core">
+      <HintPath>..\..\Eagle.Zero\Zero.Packages\Eagle.Zero.Domain.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Eagle.Zero.Domain.Events">
+      <HintPath>..\..\Eagle.Zero\Zero.Packages\Eagle.Zero.Domain.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="Eagle.Zero.Infrastructrue">
+      <HintPath>..\..\Eagle.Zero\Zero.Packages\Eagle.Zero.Infrastructrue.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiServer\Visitor.cs" />
+    <Compile Include="ApplicationServer\ActionEnum.cs" />
+    <Compile Include="ApplicationServer\ConnectStepService.cs" />
+    <Compile Include="ApplicationServer\FeelPulseServices.cs" />
+    <Compile Include="ApplicationServer\RefleshRestStateService.cs" />
+    <Compile Include="ApplicationServer\RefleshRestService.cs" />
+    <Compile Include="ApplicationServer\SendHeartbeatServices.cs" />
+    <Compile Include="ApplicationServer\TableRecordServices.cs" />
+    <Compile Include="ApplicationServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemServer\HourglassService.cs" />
+    <Compile Include="ApplicationServer\ElectrocardiogramService.cs" />
+    <Compile Include="WcfServer\MessageService.cs" />
+    <Compile Include="ApplicationServer\CaptureMsmq.cs" />
+    <Compile Include="ApplicationServer\GetLetterServices.cs" />
+    <Compile Include="ApplicationServer\ReplyLetterServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eagle.Domain.EF\Eagle.Domain.EF.csproj">
+      <Project>{D5593AB4-FC2F-4623-B3EB-80B667EC5316}</Project>
+      <Name>Eagle.Domain.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Domain.Events.Handles\Eagle.Domain.Events.Handles.csproj">
+      <Project>{CADCD90F-9ADF-4E2A-9186-BC508A828F27}</Project>
+      <Name>Eagle.Domain.Events.Handles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Domain.Events\Eagle.Domain.Events.csproj">
+      <Project>{2C39770C-9DB9-49B2-A858-86D4CA5C4E20}</Project>
+      <Name>Eagle.Domain.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Infrastructrue\Eagle.Infrastructrue.csproj">
+      <Project>{950360C3-F1B7-408A-8C31-8E0687189115}</Project>
+      <Name>Eagle.Infrastructrue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Model\Eagle.Model.csproj">
+      <Project>{63590581-7F4A-4067-8148-F17952138663}</Project>
+      <Name>Eagle.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Server.Interface\Eagle.Server.Interface.csproj">
+      <Project>{70D04AC9-7DDF-4AC8-B5C0-4A38EA375B9B}</Project>
+      <Name>Eagle.Server.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.ViewModel\Eagle.ViewModel.csproj">
+      <Project>{C154AC95-74C1-4F88-9E2E-4203D8B0AD0D}</Project>
+      <Name>Eagle.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
