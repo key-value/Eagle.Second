@@ -46,8 +46,14 @@
     <Compile Include="服务器\Electrocardiogram.cs" />
     <Compile Include="Letter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="服务器\Tree.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Eagle.Infrastructrue\Eagle.Infrastructrue.csproj">
+      <Project>{950360C3-F1B7-408A-8C31-8E0687189115}</Project>
+      <Name>Eagle.Infrastructrue</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

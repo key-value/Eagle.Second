@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Eagle.Domain.EF.DataContext;
 using Eagle.Server.ApiServer;
 using Eagle.Zero.Infrastructrue.Aop.Locator;
 using Eagle.Zero.Infrastructrue.Hourglass;
@@ -11,6 +12,8 @@ namespace Eagle.Server.SystemServer
     {
         public void Server_Start()
         {
+
+
             try
             {
                 Dictionary<string, string> value = new Dictionary<string, string>();

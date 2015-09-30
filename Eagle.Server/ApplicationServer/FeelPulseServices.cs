@@ -83,7 +83,7 @@ namespace Eagle.Server
             float availablebytes = 0;
             float sumbytes = 0;
             ManagementClass mos = new ManagementClass("Win32_OperatingSystem");
-            foreach (ManagementObject mo in mos.GetInstances())
+            foreach (var mo in mos.GetInstances())
             {
                 if (mo["FreePhysicalMemory"] != null)
                 {

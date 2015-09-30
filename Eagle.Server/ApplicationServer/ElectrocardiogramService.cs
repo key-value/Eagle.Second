@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
+using System.Linq;
 using System.Web.UI.WebControls;
 using Eagle.Domain.EF.DataContext;
 using Eagle.Model;
@@ -41,6 +43,7 @@ namespace Eagle.Server
 
         public void Execution()
         {
+
             var electro = new Electrocardiogram();
             electro.ID = Guid.NewGuid();
             electro.ReceiveTime = this.ReceiveTime;
@@ -50,8 +53,19 @@ namespace Eagle.Server
             electro.Memory = _memory;
             electro.AllMemory = _allMemory;
             electro.Description = _description;
-            using (var monitorContext = new MonitorContext())
+            using (var monitorContext = new DefaultContext())
             {
+                var tree = monitorContext.Trees.FirstOrDefault(x => x.ID == _machineId);
+                if (tree.Null())
+                {
+                    tree = new Tree
+                    {
+                        ID = _machineId,
+                        CreateTime = DateTime.Now,
+                        LastUpdateTime = SqlDateTime.MinValue.Value
+                    };
+                    monitorContext.Trees.Add(tree);
+                }
                 monitorContext.Electrocardiograms.Add(electro);
                 monitorContext.SaveChanges();
             }

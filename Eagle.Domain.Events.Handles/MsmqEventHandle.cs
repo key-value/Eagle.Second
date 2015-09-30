@@ -33,8 +33,6 @@ namespace Eagle.Domain.Events.Handles
                     LogUtility.SendError(exception);
                 }
             }
-
-
         }
     }
 }

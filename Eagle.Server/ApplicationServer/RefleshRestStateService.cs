@@ -33,7 +33,7 @@ namespace Eagle.Server
             {
                 if (CanNotConnectTime % 5 == 1)
                 {
-                    SmsUtility.SendAuspiciousError(string.Format("中间端连接有异常{0}", DateTime.Now));
+                    SmsUtility.SendAuspiciousError($"中间端连接有异常{DateTime.Now}");
                 }
                 CanNotConnectTime++;
             }

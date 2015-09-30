@@ -60,7 +60,6 @@ namespace Eagle.Server.ApiServer
                         catch (Exception e)
                         {
                             LogUtility.SendError(e);
-                            throw;
                         }
                     });
                     action.BeginInvoke(ar =>
@@ -75,7 +74,6 @@ namespace Eagle.Server.ApiServer
                             catch (Exception ex)
                             {
                                 LogUtility.SendError(ex);
-                                throw;
                             }
                         }
                     }, action);

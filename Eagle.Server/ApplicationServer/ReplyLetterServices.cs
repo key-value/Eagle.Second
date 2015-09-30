@@ -33,7 +33,7 @@ namespace Eagle.Server
                 content.Letters.Add(letter);
                 content.SaveChanges();
             }
-            updateLetter.Message = String.Format("CreateTime:{0},ReplyTime:{1}", letter.CreateTime, letter.ReplyTime);
+            updateLetter.Message = $"CreateTime:{letter.CreateTime},ReplyTime:{letter.ReplyTime}";
 
 
             var resString = HttpWebResponseUtility.CreatePostHttpResponse(string.Format("http://{0}/Message/Letter/Reply", SystemConst.PirateAddress), updateLetter.ToJson(), 30000);
