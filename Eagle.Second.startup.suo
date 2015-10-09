@@ -2,6 +2,7 @@
   "SingleProjectMode": 0,
   "SingleProjectMruCount": 5,
   "MRU": [
+    "Eagle.Cmd.Test",
     "Eagle.Cmd.Server",
     "Eagle.Cmd",
     "Eagle.Web"

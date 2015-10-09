@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Interception;
 using System.Reflection;
 using Eagle.Domain.EF.Map;
 using Eagle.Model;
@@ -11,15 +12,7 @@ namespace Eagle.Domain.EF.DataContext
     {
         static DefaultContext()
         {
-            try
-            {
-                Database.SetInitializer(new MigrateDatabaseToLatestVersion<DefaultContext, Migrations.Configuration>());
-            }
-            catch (Exception ex)
-            {
-                LogUtility.SendError(ex);
-                throw;
-            }
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DefaultContext, Migrations.Configuration>());
             //Database.SetInitializer<DefaultContext>(null);
 
 #if DEBUG
