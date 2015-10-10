@@ -23,8 +23,10 @@ namespace Eagle.Domain.EF.DataContext
         public DefaultContext()
             : base("DefaultConnection")
         {
-            this.Configuration.LazyLoadingEnabled = true;
-
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.ValidateOnSaveEnabled = false;
+            this.Configuration.UseDatabaseNullSemantics = false;
         }
 
         public void ModifiedModel(object entity)
@@ -34,7 +36,6 @@ namespace Eagle.Domain.EF.DataContext
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            LogUtility.SendTrace("执行模型修改");
             modelBuilder.Configurations.AddFromAssembly(Assembly.GetAssembly(typeof(LetterMap)));
             base.OnModelCreating(modelBuilder);
 
